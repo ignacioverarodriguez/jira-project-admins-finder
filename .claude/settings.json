@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find /Users/ignaciovera/repos/forge-app -type f \\\\\\( -name \"*.md\" -o -name \"*.txt\" -o -name \"*.yml\" -o -name \"*.yaml\" \\\\\\) | head -20)",
+      "Read(//Users/ignaciovera/repos/forge-app/**)",
+      "Read(//Users/ignaciovera/repos/forge-app/jira-tm-admins/**)",
+      "Bash(grep -r \"install\" /Users/ignaciovera/repos/forge-app --include=\"*.md\" --include=\"*.js\" --include=\"*.jsx\" --include=\"*.yml\" --include=\"*.yaml\" | grep -i \"dev\\\\|development\\\\|environment\\\\|production\" | head -20)",
+      "Bash(grep -r \"environments\" /Users/ignaciovera/repos/forge-app --include=\"*.md\" -A 3 -B 3 | head -50)",
+      "Bash(forge lint *)",
+      "WebSearch",
+      "WebFetch(domain:developer.atlassian.com)",
+      "Bash(git init *)",
+      "Bash(git add *)",
+      "Bash(git commit *)"
+    ]
+  }
+}

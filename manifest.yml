@@ -1,0 +1,29 @@
+modules:
+  jira:globalPage:
+    - key: jira-project-admins-page
+      resource: main
+      resolver:
+        function: resolver
+      render: native
+      title: Project Admins
+  function:
+    - key: resolver
+      handler: index.handler
+
+resources:
+  - key: main
+    path: src/frontend/index.jsx
+
+permissions:
+  scopes:
+    - read:jira-work
+    - manage:jira-configuration
+    - read:jira-user
+    - storage:app
+
+app:
+  runtime:
+    name: nodejs24.x
+    memoryMB: 256
+    architecture: arm64
+  id: ari:cloud:ecosystem::app/c9b721be-8e99-4007-8ac3-bfe5efbb599c
