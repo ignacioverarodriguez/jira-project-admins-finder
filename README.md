@@ -70,6 +70,14 @@ The app requires the following scopes:
 - `read:jira-user` — Read user information
 - `storage:app` — Store app data (KVS)
 
+## Technical Notes
+
+### Why not use external Atlassian APIs?
+
+Initially tried using the User Management API (`https://api.atlassian.com/users/{accountId}/manage/profile`), but **Forge apps cannot access external Atlassian APIs**. Only Jira REST API v3 endpoints (`/rest/api/3/*`) are available to Forge apps.
+
+**Solution:** Use native Jira API `GET /rest/api/3/user?accountId={accountId}` which returns user email addresses without requiring external tokens.
+
 ## Requirements
 
 - Node.js 22.x or 24.x
